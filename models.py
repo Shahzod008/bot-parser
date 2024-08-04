@@ -31,21 +31,15 @@ class Spammer(Base):
 class Channel(Base):
     __tablename__ = 'channels'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    channel = Column(Integer, nullable=False, unique=True)
-
-
-class Chat(Base):
-    __tablename__ = 'chats'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    chat = Column(Integer, nullable=False, unique=True)
+    channel = Column(String, nullable=False, unique=True)
 
 
 class Message(Base):
     __tablename__ = 'messages'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    message_id = Column(Integer, nullable=False, unique=True)
     content = Column(String, nullable=False)
-    channel_id = Column(Integer, nullable=False)
+    username = Column(String, nullable=True)
+    channel = Column(String, nullable=False)
     timestamp = Column(DateTime, default=datetime.datetime.now())
 
 

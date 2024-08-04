@@ -2,7 +2,7 @@ import logging
 from aiogram import Dispatcher
 from aiogram.filters import Command
 from aiogram.types import Message
-from models import session, Keyword, MinusWord, Chat, Channel, Spammer
+from models import session, Keyword, MinusWord, Channel, Spammer
 
 
 async def add_items(message: Message, model_class, item_type: str):
@@ -103,8 +103,6 @@ async def register_commands(dp: Dispatcher):
         ('remove_spammer', Spammer),
         ('add_channel', Channel),
         ('remove_channel', Channel),
-        ('add_chat', Chat),
-        ('remove_chat', Chat),
     ]
 
     for action, model in commands:
